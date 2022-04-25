@@ -1,4 +1,4 @@
-## Advanced Lane Finding
+## Computer Vision Based Road lane Detection
 # Pritesh Alshetty
 # created on 20/03/2022
 
