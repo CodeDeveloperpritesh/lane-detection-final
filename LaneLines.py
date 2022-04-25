@@ -219,17 +219,17 @@ class LaneLines:
         widget[:,-1] = [0, 0, 255]
         out_img[:H, :W] = widget
 
-        direction = max(set(self.dir), key = self.dir.count)
-        msg = "Keep Straight Ahead"
+            direction = max(set(self.dir), key = self.dir.count)
+        msg = "Straight Lane"
         curvature_msg = "Curvature = {:.0f} m".format(min(lR, rR))
         if direction == 'L':
             y, x = self.left_curve_img[:,:,3].nonzero()
             out_img[y, x-100+W//2] = self.left_curve_img[y, x, :3]
-            msg = "Left Curve Ahead"
+            msg = "Left Curve Ahead in Lane"
         if direction == 'R':
             y, x = self.right_curve_img[:,:,3].nonzero()
             out_img[y, x-100+W//2] = self.right_curve_img[y, x, :3]
-            msg = "Right Curve Ahead"
+            msg = "Right Curve Ahead in Lane"
         if direction == 'F':
             y, x = self.keep_straight_img[:,:,3].nonzero()
             out_img[y, x-100+W//2] = self.keep_straight_img[y, x, :3]
@@ -237,10 +237,10 @@ class LaneLines:
         cv2.putText(out_img, msg, org=(10, 240), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=1, color=(255, 255, 255), thickness=2)
         if direction in 'LR':
             cv2.putText(out_img, curvature_msg, org=(10, 280), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=1, color=(255, 255, 255), thickness=2)
-
+# Decoration of Image 
         cv2.putText(
             out_img,
-            "Good Lane Keeping",
+            "Pritesh Alshetty:Road Lane Detection",
             org=(10, 400),
             fontFace=cv2.FONT_HERSHEY_SIMPLEX,
             fontScale=1.2,
