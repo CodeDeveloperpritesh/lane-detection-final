@@ -2,7 +2,7 @@
 # Pritesh Alshetty
 # created on 20/03/2022
 
-The Project
+`The Project`
 ---
 
 The goals / steps of this project are the following:
